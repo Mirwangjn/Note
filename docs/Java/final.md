@@ -1,0 +1,47 @@
+## final
+
+`final`可修饰`方法`, `类`, `变量`。
+
+- 修饰方法后 ==> 该方法不能被重写, 表示该方法为最终方法
+- 修饰类后 ==> 该类不能被继承, 表示该类为最终类
+- 修饰变量后 ==> 该变量不能被重新赋值, 表示该变量为常量
+
+---
+
+## 命名规则
+
+- 单个单词: 全部大写
+- 多个单词: 全部大写, 单词之间用下划线隔开
+
+---
+
+## 常量
+
+实际开发中, 常量一般作为系统的配置信息, 方便维护, 提高可读性
+
+- `final`修饰的变量是基本类型时, 那么变量存储的数据值不能发生改变
+- `final`修饰的变量是引用类型时, 那么变量存储的地址值不能发生改变, 但是地址指向的内容可以发生改变
+
+```java
+import com.littlewang.domain.Student;
+
+public class Test {
+    public static void main(String[] args) {
+        final double PI = 3.14;
+        //报错: final修饰的基本类型变量不能被重新赋值
+        PI = 1;// [!code error]
+        //final修饰引用类型的对象, 那么变量存储的地址值不能发生改变, 但是地址指向的内容可以发生改变
+        final Student STU = new Student("zhangshan", 18);
+        STU.setName("wnjn");
+        STU.setAge(21);
+        System.out.println(STU.getAge() + STU.getName());
+        //报错: final修饰引用类型的对象, 变量存储的地址值不能发生改变
+        STU = null;// [!code error]
+    }
+}
+```
+
+:::tip
+总而言之, 常量**记录的值**是不可以改变的. 基本类型记录的值是真实的数据; 而引用类型记录的是地址值.
+:::
+

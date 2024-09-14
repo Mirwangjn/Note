@@ -1,0 +1,138 @@
+## static修饰类中的成员变量
+
+static修饰类中的成员变量时, 此变量会**共享**, 所以static修饰的变量在对象之上. 是随着类的加载而加载的
+
+而是因为如此, 静态方法里面只可以使用静态, 不能使用非静态的变量或方法.
+
+```java 创建学生类
+public class Student {
+    private String name;
+    
+    public static String teacherName;
+
+    public Student(String name, String teacherName) {
+        this.name = name;
+        this.teacherName = teacherName;
+    }
+
+    public Student() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+}
+```
+
+```java{3} 使用学生类
+public class StudentTest {
+    public static void main(String[] args) {
+        //被static修饰的静态变量会共享在对象中
+        Student.teacherName = "小小汪";
+        Student stu1 = new Student("wang");
+        System.out.println(stu1);
+        Student stu2 = new Student("jia");
+        System.out.println(stu2);
+    }
+}
+```
+
+输出结果为: `Student{name = wang, teacherName = 小小汪}`
+`Student{name = jia, teacherName = 小小汪}`
+
+:::tip
+静态变量的调用方式
+
+1. 通过**类名.静态变量**(推荐)
+2. 通过**实例对象.静态变量**
+:::
+
+---
+
+## static修饰类中的成员方法
+
+1. 当static修饰的方法在当前类中, 可以直接调用, 而不需要**类名.方法名**
+
+```java
+public class MoneyToMoney {
+    public static void main(String[] args) {
+        int result = add(1, 2);
+        System.out.println(result);
+    }
+
+    //当前类中定义的static修饰的成员方法
+    public static int add(int a, int b) {
+        return a + b;
+    }
+
+}
+```
+
+:::details
+- 被static修饰的静态变量
+  - 该类所以对象共享
+  - 随着类的加载而加载, 优于对象的存在
+  - 可以直接通过**类名.静态变量**来调用
+- 被static修饰的静态方法
+  - 多在测试类和工具类中使用
+  - 该方法中只能访问静态变量和静态方法
+  - 可以直接通过**类名.静态方法**来调用
+:::
+
+---
+
+1. 一个类调用其他类的静态方法
+
+```java
+public class ArrUtilTest {
+    public static void main(String[] args) {
+        int[] arr = new int[3];
+        //其他类中的静态方法
+        String result = ArrUtil.arrToString(arr);
+        System.out.println(result);
+    }
+}
+```
+
+:::tip
+调用静态方法
+
+1. 调用本类的静态方法时 -- 直接调用
+2. 调用其他类的静态方法时 -- 类名.方法()
+:::
+
+---
+
+## static的注意点   
+
+1. 静态方法只能访问`静态变量`和`静态方法`
+2. 非静态方法可以访问静态变量和静态方法, 也可以访问非静态变量和非静态方法
+3. 静态方法中不能使用`this`关键字
+
+```java
+public class Student {
+    private String name;
+    private int age;
+    private char gender;
+    //error: 静态方法没有this
+    public static void show(Student this) { // [!code error]
+        System.out.println("正在学习");
+    }
+
+    public String getName(Student this) { // [!code ++]
+        return this.name;
+    }
+}
+```

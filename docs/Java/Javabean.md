@@ -1,0 +1,79 @@
+## Javabean类的标准
+
+描述一个事物的类叫做`javabean`类
+
+1. 类名需要`见名知意`
+2. 成员变量需要`private`修饰
+3. 提供至少两个构造方法
+   - 无参构造方法
+   - 带全部参数的构造方法
+4. 成员方法
+   - 提供每一个成员的`setXxx`和`getXxx`
+   - 如果还有其他行为, 可以补上
+
+```java
+public class User {
+    private String username;
+    private String password;
+    private int age;
+
+    public User() {
+    }
+
+    public User(String username, String password, int age) {
+        this.username = username;
+        this.password = password;
+        this.age = age;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String toString() {
+        return "User{username = " + username + ", password = " + password + ", age = " + age + "}";
+    }
+}
+```
+
+:::tip
+可使用插件`ptg`进行一键生成`javabean`
+:::
+
+
+---
+
+## 基本数据类型和引用数据类型
+
+- 基本数据类型: 数据存储在自己的空间中
+- 引用数据类型: 
+
+:::tip 
+基本类型有, `整形`, `浮点型`, `字符型`, `布尔型`
+:::
+
+---
+
+## this指向
+
+`this`的本质: **代表方法的调用者的地址值**
