@@ -45,3 +45,20 @@ public class StringBuilderDemo3 {
 2. 添加的内容小于16, 直接存储
 3. 添加的内容大于16会扩容(老容量 * 2 + 2)
 4. 如果扩容之后还不够, 就会以实际长度为准
+
+---
+
+## 方法
+
+| 方法名                                                     | 作用|
+| --------------------------------------------------------- | ----|
+| public StringBuilder append(String str)                   | 添加字符串|
+| public StringBuilder reverse()                           | 反转字符串|
+| public StringBuilder insert(int offset, String str)      | 在指定位置插入字符串|
+| public StringBuilder delete(int start, int end)          | 删除指定位置的字符串|
+| public StringBuilder replace(int start, int end, String str) | 替换指定位置的字符串|
+| public String toString()                                 | 将StringBuilder转换为String|
+| public int length()                                     | 获取字符串的长度|
+| public int capacity()                                   | 获取容量|
+
+``````
