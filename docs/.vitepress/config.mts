@@ -1,8 +1,11 @@
 import { defineConfig } from 'vitepress'
-import { generateSidebar } from "vitepress-sidebar";
+import MarkdownPreview from 'vite-plugin-markdown-preview'
 import { vueConfig } from '../config/vue.config';
 import { javaConfig } from '../config/java.config';
 import { navConfig } from '../config/nav.config';
+import { vitepressConfig } from "../config/vittepress.config"
+import autoSidebar from "../auto-sidebar";
+import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
 
 
 // https://vitepress.dev/reference/site-config
@@ -34,11 +37,19 @@ export default defineConfig({
           collapsed: false,
           items: vueConfig
         }
+      ],
+      '/vitepress/': [
+        {
+          text: 'vitepress',
+          collapsed: false,
+          items: vitepressConfig
+        }
       ]
     },
+    // sidebar: autoSidebar,
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/Mirwangjn/C' }
+      { icon: 'github', link: 'https://github.com/Mirwangjn/C' },
     ],
     // 添加搜索框
     search: {
@@ -60,7 +71,13 @@ export default defineConfig({
       dangerLabel: '危险',
       infoLabel: '信息',
       detailsLabel: '详细信息'
-    }
+    },
+    config(md) {
+      md.use(groupIconMdPlugin)
+    },
+  },
+  vite: {
+    plugins: [MarkdownPreview(), groupIconVitePlugin()],
   },
   /*
     当设置./src作为源目录时, 对应的

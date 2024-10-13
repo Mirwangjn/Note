@@ -1,0 +1,31 @@
+:root {
+  --w-block-tip-border: #747bff;
+  --w-block-tip-bg: rgba(100, 108, 255, .08);
+  --w-block-tip-text: #bcc0ff;
+
+  --w-block-details-border: #585656;
+  --w-block-details-bg: #262626;
+}
+
+/**
+   * Component: Custom Block
+   * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-custom-block-tip-border: var(--w-block-tip-border);
+  --vp-custom-block-tip-text: var(--w-block-tip-text);
+  --vp-custom-block-tip-bg: var(--w-block-tip-bg);
+  --vp-custom-block-tip-code-bg: var(--vp-c-tip-soft);
+
+  --vp-custom-block-details-border: var(--w-block-details-border);
+  --vp-custom-block-details-text: var(--vp-custom-block-info-text);
+  --vp-custom-block-details-bg: var(--w-block-details-bg);
+  --vp-custom-block-details-code-bg: var(--vp-custom-block-info-code-bg);
+
+  --vp-custom-block-danger-border: #ff6e6e;
+  --vp-custom-block-danger-text: var(--vp-c-text-1);
+  --vp-custom-block-danger-bg: var(--vp-c-danger-soft);
+  --vp-custom-block-danger-code-bg: var(--vp-c-danger-soft);
+}
+
+/* #ff6e6e */

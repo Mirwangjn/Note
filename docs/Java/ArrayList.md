@@ -1,0 +1,93 @@
+## 集合和数组的优势对比
+
+1. 长度可变
+2. 添加数据的时候不需要考虑索引，默认将数据添加到末尾
+
+---
+
+## ArrayList类概述
+
+- 什么是集合
+
+  ​	提供一种存储空间可变的存储模型，存储的数据容量可以发生改变
+
+- ArrayList集合的特点
+
+  ​	长度可以变化，只能存储**引用数据类型**, 若需要限制类型, 则需要使用对应的**包装类**。
+
+- 泛型的使用
+
+  ​	用于约束集合中存储元素的数据类型
+
+---
+
+## ArrayList类常用方法
+
+1. 构造方法
+
+| 方法名             |         说明         |
+| ------------------ | :------------------: |
+| public ArrayList() | 创建一个空的集合对象 |
+
+---
+
+2. 成员方法
+
+| 方法名                                |                  说明                  |
+| ------------------------------------- | :------------------------------------: |
+| public boolean add(要添加的元素)      |     将指定的元素追加到此集合的末尾     |
+| public boolean remove(要删除的元素)   |  删除指定元素,返回值表示是否删除成功   |
+| public E  remove(int   index)         | 删除指定索引处的元素，返回被删除的元素 |
+| public E   set(int index,E   element) | 修改指定索引处的元素，返回被修改的元素 |
+| public E   get(int   index)           |          返回指定索引处的元素          |
+| public int   size()                   |         返回集合中的元素的个数         |
+
+---
+
+## ArrayList基本使用
+
+```java
+public class ArrayListTest {
+    public static void main(String[] args) {
+        //创建ArrayList对象, 并对其中的内容进行约束为String类型
+        ArrayList<String> list = new ArrayList<>(); // [!code highlight]
+        //添加元素
+        list.add("aaa");
+        list.add("bbb");
+        list.add("ccc");
+        System.out.println(list);// [aaa, bbb, ccc]
+
+        //删除元素aaa
+        list.remove("aaa");
+        System.out.println(list);// [bbb, ccc]
+        //删除指定索引的元素
+        list.remove(0);
+        System.out.println(list);// [ccc]
+
+        
+    }
+}
+```
+
+---
+
+## 包装类基本介绍
+
+- 什么是包装类
+
+  ​	将基本数据类型封装成对象的好处在于可以在对象中定义更多的功能方法操作该数据。
+
+- 基本数据类型对应的包装类
+
+| 基本数据类型 | 包装类    |
+| ------------ | --------- |
+| byte         | Byte      |
+| short        | Short     |
+| int          | Integer   |
+| long         | Long      |
+| float        | Float     |
+| double       | Double    |
+| char         | Character |
+| boolean      | Boolean   |
+
+---

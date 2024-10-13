@@ -45,3 +45,23 @@ import Test from "./components/test.vue";
 <style module>
 
 </style>
+
+::: code-group
+
+```sh [npm]
+npm install vitepress-plugin-group-icons
+```
+
+```sh [yarn]
+yarn add vitepress-plugin-group-icons
+```
+
+```sh [pnpm]
+pnpm add vitepress-plugin-group-icons
+```
+
+```sh [bun]
+bun add vitepress-plugin-group-icons
+```
+
+:::

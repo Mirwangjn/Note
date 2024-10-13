@@ -7,7 +7,7 @@ export const javaConfig: DefaultTheme.SidebarItem[] = [
     { text: "StringBuilder", link: "/Java/StringBuilder" },
     { text: "static修饰符", link: "/Java/static" },
     { text: "工具类", link: "/Java/工具类" },
-    { text: "集合", link: "/Java/集合" },
+    { text: "ArrayList", link: "/Java/ArrayList" },
     { text: "面向对象", link: "/Java/面向对象" },
     { text: "包", link: "/Java/package" },
     { text: "final", link: "/Java/final" },
@@ -21,5 +21,8 @@ export const javaConfig: DefaultTheme.SidebarItem[] = [
     { text: "时间API", link: "/Java/时间API" },
     { text: "lambda表达式", link: "/Java/lambda表达式" },
     { text: "常见算法", link: "/Java/常见算法" },
+    { text: "泛型", link: "/Java/泛型" },
+    { text: "集合", link: "/Java/集合" },
+    { text: "数据结构", link: "/Java/数据结构" },
 ]
 

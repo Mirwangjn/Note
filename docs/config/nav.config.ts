@@ -21,7 +21,7 @@ export const navConfig: DefaultTheme.NavItem[] = [
     {
         text: '其他',
         items: [
-            { text: 'vitepress', link: '/' }
+            { text: 'vitepress', link: '/vitepress/addIcon' }
         ]
     }
 ]

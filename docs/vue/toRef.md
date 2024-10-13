@@ -49,3 +49,15 @@ const changeName = () => {
 ```
 
 > 两者都是将响应式对象中的属性结构拿出, 并且此属性依然具有响应式的作用
+
+```vue preview
+<template>
+  <div>当前计数为：{{ count }}</div>
+  <br />
+  <button @click="count++">点我！</button>
+</template>
+<script setup>
+import { ref } from 'vue'
+const count = ref(0)
+</script>
+```
