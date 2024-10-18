@@ -9,10 +9,10 @@ hero:
   actions:
     - theme: brand
       text: get started
-      link: /Java/Javabean
+      link: /Java/02.Javabean
     - theme: alt
       text: API Examples
-      link: /Java/Javabean
+      link: /Java/02.Javabean
 
 features:
   - title: Feature A

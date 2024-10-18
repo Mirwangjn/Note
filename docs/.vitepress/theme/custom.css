@@ -1,6 +1,10 @@
 :root {
-  --w-block-tip-border: #747bff;
   --w-block-tip-bg: rgba(100, 108, 255, .08);
+  --w-block-tip-text: #454ce1;
+}
+
+.dark {
+  --w-block-tip-border: #747bff;
   --w-block-tip-text: #bcc0ff;
 
   --w-block-details-border: #585656;
@@ -28,4 +32,7 @@
   --vp-custom-block-danger-code-bg: var(--vp-c-danger-soft);
 }
 
-/* #ff6e6e */
+.medium-zoom-overlay,
+.medium-zoom-image--opened {
+  z-index: 999;
+}

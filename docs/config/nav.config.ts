@@ -14,14 +14,14 @@ export const navConfig: DefaultTheme.NavItem[] = [
     {
         text: '后端',
         items: [
-            { text: 'Java', link: '/Java/Javabean' },
+            { text: 'Java', link: '/Java/02.Javabean' },
 
         ]
     },
     {
         text: '其他',
         items: [
-            { text: 'vitepress', link: '/vitepress/addIcon' }
+            { text: 'vitepress', link: '/vitepress/01.自动生成侧边栏' }
         ]
     }
 ]
