@@ -83,7 +83,7 @@ const setDir2 = (arr: string[], deep: number, curArr: any[], prefixPath: string)
 }
 
 setDir2(root, 1, [], "/");
-console.log(config);
+//console.log(config);
 
 
 export default config;
