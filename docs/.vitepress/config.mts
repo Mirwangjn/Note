@@ -9,6 +9,7 @@ import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepre
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: 'Note',
   // 项目标题
   title: "小小汪",
   description: "小小汪",
