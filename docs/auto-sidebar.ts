@@ -75,7 +75,7 @@ const setDir2 = (arr: string[], deep: number, curArr: any[], prefixPath: string)
       ////不是md文件, 跳过
       if (item.indexOf(".md") === -1) continue;
       //否 ==> 添加curArr数组中
-      curArr.push({ text: item.replace(".md", ""), link: finalPrefixPath });
+      curArr.push({ text: item.replace(".md", ""), link: prefix + '/' + item.replace(".md", "") });
     }
   }
 
@@ -83,7 +83,7 @@ const setDir2 = (arr: string[], deep: number, curArr: any[], prefixPath: string)
 }
 
 setDir2(root, 1, [], "/");
-// console.log(config);
+console.log(config);
 
 
 export default config;
