@@ -8,7 +8,7 @@ export const navConfig: DefaultTheme.NavItem[] = [
     {
         text: '前端',
         items: [
-            { text: 'Vue', link: '/vue/vue3笔记' },
+            { text: 'Vue', link: '/vue/toRef' },
         ]
     },
     {
