@@ -80,7 +80,15 @@ export default defineConfig({
     ],
     // 添加搜索框
     search: {
-      provider: 'local'
+      provider: 'algolia',
+      options: {
+        appId: 'NJIHR12AAA',// algolia中的algolia
+        apiKey: 'f67e74600d86ab3196969a3515a778e2',// algolia中的Search API Key
+        //你的application名称
+        indexName: 'My First Application',
+        placeholder: '请输入关键词',
+
+      }
     },
   },
   markdown: {
