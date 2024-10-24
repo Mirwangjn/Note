@@ -12,7 +12,7 @@ import Danger from '../../components/Danger.vue'
 export default {
     extends: DefaultTheme,
     Layout,
-    enhanceApp({ app }) {        
+    enhanceApp({ app }) {
         app.component("Test", Test);
         app.component("Tip", Tip);
         app.component("Danger", Danger);

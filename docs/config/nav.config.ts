@@ -21,7 +21,8 @@ export const navConfig: DefaultTheme.NavItem[] = [
     {
         text: '其他',
         items: [
-            { text: 'vitepress', link: '/vitepress/01.自动生成侧边栏' }
+            { text: 'vitepress', link: '/vitepress/01.自动生成侧边栏' },
+            { text: 'linux', link: '/linux/01.安装' }
         ]
     }
 ]

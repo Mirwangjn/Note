@@ -1,11 +1,10 @@
 import { defineConfig } from 'vitepress'
 import MarkdownPreview from 'vite-plugin-markdown-preview'
-import { vueConfig } from '../config/vue.config';
-import { javaConfig } from '../config/java.config';
 import { navConfig } from '../config/nav.config';
-import { vitepressConfig } from "../config/vittepress.config"
-import autoSidebar from "../auto-sidebar";
+import { autoSidebar } from "../auto-sidebar";
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
+import mdItCustomAttrs from "markdown-it-custom-attrs";
+
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -22,52 +21,8 @@ export default defineConfig({
     },
     // https://vitepress.dev/reference/default-theme-config
     nav: navConfig,
-    // sidebar: {
-    //   '/': [
-    //     {
-    //       text: '/',
-    //       collapsed: false,
-    //       items: [
-    //         {
-    //           text: 'pinia',
-    //           link: '/Pinia'
-
-    //         }
-    //       ]
-    //     }
-    //   ],
-    //   // 当用户位于 `Java` 目录时，会显示此侧边栏
-    //   '/Java/': [
-    //     {
-    //       text: 'Java',
-    //       collapsed: false,
-    //       items: javaConfig,
-    //     }
-    //   ],
-    //   'vue': [
-    //     {
-    //       text: 'vue',
-    //       collapsed: false,
-    //       items: vueConfig
-    //     }
-    //   ],
-    //   'vitepress': [
-    //     {
-    //       text: 'vitepress',
-    //       collapsed: false,
-    //       items: [
-    //         { text: '开始', link: "/vitepress/addIcon" },
-    //         {
-    //           text: 'test',
-    //           items: [
-    //             { text: '测试', link: "/vitepress/code/index" }
-    //           ]
-    //         }
-    //       ]
-    //     }
-    //   ],
-    // },
-    sidebar: autoSidebar,
+    
+    sidebar: autoSidebar(),
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/Mirwangjn/C' },
@@ -80,15 +35,14 @@ export default defineConfig({
     ],
     // 添加搜索框
     search: {
-      provider: 'algolia',
-      options: {
-        appId: 'NJIHR12AAA',// algolia中的algolia
-        apiKey: 'f67e74600d86ab3196969a3515a778e2',// algolia中的Search API Key
-        //你的application名称
-        indexName: 'My First Application',
-        placeholder: '请输入关键词',
-
-      }
+      provider: 'local',
+      // options: {
+      //   appId: 'NJIHR12AAA',// algolia中的algolia
+      //   apiKey: 'f67e74600d86ab3196969a3515a778e2',// algolia中的Search API Key
+      //   //你的application名称
+      //   indexName: 'My First Application',
+      //   placeholder: '请输入关键词',
+      // }
     },
   },
   markdown: {
@@ -109,19 +63,55 @@ export default defineConfig({
     },
     config(md) {
       md.use(groupIconMdPlugin)
+      // use more markdown-it plugins!
+      md.use(mdItCustomAttrs, "image", {
+        "data-fancybox": "gallery",
+      });
     },
   },
   vite: {
     plugins: [
-      MarkdownPreview(), 
+      MarkdownPreview(),
       groupIconVitePlugin({
         customIcon: {
           '.java': localIconLoader(import.meta.url, "../assets/java.svg"),
           // '.java': 'vscode-icons:file-type-java'
         }
-      })
+      }),
     ],
   },
+  head: [
+    [
+      "link",
+      {
+        rel: "stylesheet",
+        href: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css",
+      },
+    ],
+    [
+      "script",
+      {
+        src: "https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js",
+      },
+    ],
+    [
+      "script",
+      {},
+      `
+        const script = document.createElement("script");
+        script.defer = "";
+        script.sync = "";
+        script.src = "https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js";
+        document.body.append(script);
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css";
+        document.head.append(link);
+      `,
+    ],
+
+
+  ],
   /*
     当设置./src作为源目录时, 对应的
     src/index.md -->  /index.html (可以通过 / 访问)

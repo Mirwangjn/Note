@@ -15,10 +15,10 @@ export default function createGitalk(path: string) {
         repo: 'Note',
         owner: 'Mirwangjn',
         admin: ['Mirwangjn'],
+        // 此id很重要, 此id对应着GitHub issue标签, 只有通过issue标签才可以显示对应的评论
         id: generateId(path),      // 确保唯一性和长度小于 50
         distractionFreeMode: false,  // 类似 facebook 的无干扰模式
     });
-    console.log(generateId(path));
 
     gitalk.render('gitalk-container');
 }
