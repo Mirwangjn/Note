@@ -1,10 +1,23 @@
 import { defineConfig } from 'vitepress'
+//代码块demo-block
 import MarkdownPreview from 'vite-plugin-markdown-preview'
-import { navConfig } from '../config/nav.config';
-import { autoSidebar } from "../auto-sidebar";
+import { navConfig } from '../config/nav.config'
+import { autoSidebar } from "../auto-sidebar"
+//代码块icon图标
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
-import mdItCustomAttrs from "markdown-it-custom-attrs";
+//图片方法
+import mdItCustomAttrs from "markdown-it-custom-attrs"
+import { SearchPlugin } from "vitepress-plugin-search";
+import flexSearchIndexOptions from "flexsearch";
 
+
+//default options
+var options = {
+  ...flexSearchIndexOptions,
+  previewLength: 100, //搜索结果预览长度
+  buttonLabel: "搜索",
+  placeholder: "情输入关键词",
+};
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -35,16 +48,16 @@ export default defineConfig({
       }
     ],
     // 添加搜索框
-    search: {
-      provider: 'algolia',
-      options: {
-        appId: 'NJIHR12AAA',// algolia中的algolia
-        apiKey: 'f67e74600d86ab3196969a3515a778e2',// algolia中的Search API Key
-        //你的application名称
-        indexName: 'My First Application',
-        placeholder: '请输入关键词',
-      }
-    },
+    // search: {
+    //   provider: 'algolia',
+    //   options: {
+    //     appId: 'NJIHR12AAA',// algolia中的algolia
+    //     apiKey: 'f67e74600d86ab3196969a3515a778e2',// algolia中的Search API Key
+    //     //你的application名称
+    //     indexName: 'My First Application',
+    //     placeholder: '请输入关键词',
+    //   }
+    // },
     footer: {
       // 底部页脚信息
       message: 'Released under the MIT License.',
@@ -77,13 +90,17 @@ export default defineConfig({
   },
   vite: {
     plugins: [
+      // 代码块demo-block
       MarkdownPreview(),
+      //代码块icon图标
       groupIconVitePlugin({
         customIcon: {
           '.java': localIconLoader(import.meta.url, "../assets/java.svg"),
           // '.java': 'vscode-icons:file-type-java'
         }
       }),
+      //本地搜索
+      SearchPlugin(options),
     ],
   },
   head: [

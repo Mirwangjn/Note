@@ -19,19 +19,13 @@
   --vp-custom-block-tip-border: var(--w-block-tip-border);
   --vp-custom-block-tip-text: var(--w-block-tip-text);
   --vp-custom-block-tip-bg: var(--w-block-tip-bg);
-  --vp-custom-block-tip-code-bg: var(--vp-c-tip-soft);
 
   --vp-custom-block-details-border: var(--w-block-details-border);
-  --vp-custom-block-details-text: var(--vp-custom-block-info-text);
   --vp-custom-block-details-bg: var(--w-block-details-bg);
-  --vp-custom-block-details-code-bg: var(--vp-custom-block-info-code-bg);
 
   --vp-custom-block-danger-border: #ff6e6e;
-  --vp-custom-block-danger-text: var(--vp-c-text-1);
-  --vp-custom-block-danger-bg: var(--vp-c-danger-soft);
-  --vp-custom-block-danger-code-bg: var(--vp-c-danger-soft);
 }
-
+/* 首页标题样式 */
 :root {
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
@@ -42,14 +36,40 @@
   z-index: 999;
 } */
 
-/* img {
-  cursor: grab;
-} */
-
-.VPSidebar::-webkit-scrollbar {
-  background-color: transparent;
+.DocSearch-Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background: transparent;
+  transition: border-color 0.25s;
+}
+@media (min-width: 768px) {
+  .DocSearch-Button {
+    justify-content: flex-start;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 0 10px 0 12px;
+    width: 100%;
+    height: 40px;
+    background-color: var(--vp-c-bg-alt);
+  }
+}
+@media (max-width: 768px) {
+  .DocSearch-Button-Keys {
+    display: none;
+  }
+  .VPNavBarHamburger {
+    height: 32px !important;
+    width: 32px !important;
+    border-radius: 4px;
+  }
 }
 
-.VPSidebar::-webkit-scrollbar-thumb {
-  background-color: transparent;
+.DocSearch-Button:hover {
+  border-color: var(--w-block-tip-border);
 }
