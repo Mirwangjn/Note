@@ -1,6 +1,6 @@
 {
-  "index_name": "***",
-  "start_urls": ["***"],
+  "index_name": "My First Application",
+  "start_urls": ["https://mirwangjn.github.io/Note/"],
   "rateLimit": 8,
   "maxDepth": 10,
   "selectors": {
