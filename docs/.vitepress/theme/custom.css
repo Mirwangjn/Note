@@ -32,11 +32,24 @@
   --vp-custom-block-danger-code-bg: var(--vp-c-danger-soft);
 }
 
-.medium-zoom-overlay,
-.medium-zoom-image--opened {
-  z-index: 999;
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
 }
 
-img {
+/* .medium-zoom-overlay,
+.medium-zoom-image--opened {
+  z-index: 999;
+} */
+
+/* img {
   cursor: grab;
+} */
+
+.VPSidebar::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+.VPSidebar::-webkit-scrollbar-thumb {
+  background-color: transparent;
 }
