@@ -36,14 +36,14 @@ export default defineConfig({
     ],
     // 添加搜索框
     search: {
-      provider: 'local',
-      // options: {
-      //   appId: 'NJIHR12AAA',// algolia中的algolia
-      //   apiKey: 'f67e74600d86ab3196969a3515a778e2',// algolia中的Search API Key
-      //   //你的application名称
-      //   indexName: 'My First Application',
-      //   placeholder: '请输入关键词',
-      // }
+      provider: 'algolia',
+      options: {
+        appId: 'NJIHR12AAA',// algolia中的algolia
+        apiKey: 'f67e74600d86ab3196969a3515a778e2',// algolia中的Search API Key
+        //你的application名称
+        indexName: 'My First Application',
+        placeholder: '请输入关键词',
+      }
     },
     footer: {
       // 底部页脚信息
@@ -87,6 +87,15 @@ export default defineConfig({
     ],
   },
   head: [
+    [
+      'link',
+      {
+        rel: 'icon',
+        //如果设置了 base，则使用 /base/assets/logo.svg
+        href: '/Note/assets/logo.svg'
+      }
+    ],
+    // 添加图片放大
     [
       "link",
       {

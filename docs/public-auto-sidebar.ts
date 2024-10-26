@@ -2,16 +2,33 @@
 import fs from "node:fs";
 import { type DefaultTheme } from "vitepress";
 
-export const autoSidebar = () => {
+interface AutoSidebarOptions {
+  //你需要生成的目录的完整路径, 如果你想要生成docs目录, 则添加它的绝对路径
+  path?: string;
+  whiteList?: string[];
+  collapsed?: boolean;
+  firstDirName?: string;
+}
+
+export const autoSidebar = (options: AutoSidebarOptions) => {
+
+    const option = {
+        path: __dirname,
+        whiteList: ['node_modules'],
+        collapsed: true,
+        firstDirName: 'other', 
+    }
+    //合并option
+    Object.assign(option, options);
   //设置基础路径
-  const basePath = __dirname;
+  const basePath = option.path;
   //设置白名单
-  const whiteList = [".vitepress", "components", "config", "public", "img", 'assets']
+  const whiteList = option.whiteList;
   //lstatSync函数的作用是同步地获取文件或目录的状态信息, isDirectory判断当前文件是否为文件夹
   const isDirectory = (path: string) => fs.lstatSync(path).isDirectory();
   //__dirname获取当前文件所在目录的绝对路径
   //获取当前目录信息
-  const root = fs.readdirSync(__dirname);
+  const root = fs.readdirSync(option.path);
   //过滤白名单函数
   const filter = (arr: string[]) => {
     return arr.filter(val => !whiteList.includes(val));
@@ -31,8 +48,8 @@ export const autoSidebar = () => {
     if (deep === 1) {
       //第一层不是文件夹的部分都会存放在'/'路径下
       config['/'] = [{
-        text: 'other',
-        collapsed: false,
+        text: options.firstDirName,
+        collapsed: options.collapsed,
         items: curArr
       }]
     }
@@ -91,44 +108,6 @@ export const autoSidebar = () => {
   return config;
 }
 
-
-
-//生成目录结构
-
-/*
- {
-      // 当用户位于 `Java` 目录时，会显示此侧边栏
-      '/Java/': [
-        {
-          text: 'Java',
-          collapsed: false,
-          items: javaConfig,
-        }
-      ],
-      'vue': [
-        {
-          text: 'vue',
-          collapsed: false,
-          items: vueConfig
-        }
-      ],
-      'vitepress': [
-        {
-          text: 'vitepress',
-          collapsed: false,
-          items: [
-            { text: '开始', link: "/vitepress/addIcon" },
-            {
-              text: 'test',
-              items: [
-                { text: '测试', link: "/vitepress/code/index" }
-              ]
-            }
-          ]
-        }
-      ],
-    }
-*/
 
 
 
