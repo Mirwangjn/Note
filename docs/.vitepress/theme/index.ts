@@ -7,8 +7,6 @@ import Test from "../../components/test.vue";
 import Tip from '../../components/Tip.vue'
 import Danger from '../../components/Danger.vue'
 
-
-
 export default {
     extends: DefaultTheme,
     Layout,

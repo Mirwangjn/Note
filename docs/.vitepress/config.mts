@@ -7,17 +7,6 @@ import { autoSidebar } from "../auto-sidebar"
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
 //图片方法
 import mdItCustomAttrs from "markdown-it-custom-attrs"
-import { SearchPlugin } from "vitepress-plugin-search";
-import flexSearchIndexOptions from "flexsearch";
-
-
-//default options
-var options = {
-  ...flexSearchIndexOptions,
-  previewLength: 100, //搜索结果预览长度
-  buttonLabel: "搜索",
-  placeholder: "情输入关键词",
-};
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -35,7 +24,7 @@ export default defineConfig({
     },
     // https://vitepress.dev/reference/default-theme-config
     nav: navConfig,
-    
+
     sidebar: autoSidebar(),
 
     socialLinks: [
@@ -48,16 +37,17 @@ export default defineConfig({
       }
     ],
     // 添加搜索框
-    // search: {
-    //   provider: 'algolia',
-    //   options: {
-    //     appId: 'NJIHR12AAA',// algolia中的algolia
-    //     apiKey: 'f67e74600d86ab3196969a3515a778e2',// algolia中的Search API Key
-    //     //你的application名称
-    //     indexName: 'My First Application',
-    //     placeholder: '请输入关键词',
-    //   }
-    // },
+    search: {
+      provider: 'local',
+      // provider: 'algolia',
+      // options: {
+      //   appId: 'NJIHR12AAA',// algolia中的algolia
+      //   apiKey: 'f67e74600d86ab3196969a3515a778e2',// algolia中的Search API Key
+      //   //你的application名称
+      //   indexName: 'My First Application',
+      //   placeholder: '请输入关键词',
+      // }
+    },
     footer: {
       // 底部页脚信息
       message: 'Released under the MIT License.',
@@ -100,7 +90,7 @@ export default defineConfig({
         }
       }),
       //本地搜索
-      SearchPlugin(options),
+      // SearchPlugin(options),
     ],
   },
   head: [
