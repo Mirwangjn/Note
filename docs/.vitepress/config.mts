@@ -22,6 +22,17 @@ export default defineConfig({
     outline: {
       level: "deep"
     },
+    lastUpdated: {
+      text: '最后一次更新于',
+      formatOptions: {
+        dateStyle: 'full',
+        timeStyle: 'medium'
+      }
+    },
+    editLink: {
+      pattern: 'https://github.com/Mirwangjn/Note/tree/main/docs/:path',
+      text: '在 GitHub 上编辑此页'
+    },
     // https://vitepress.dev/reference/default-theme-config
     nav: navConfig,
 
