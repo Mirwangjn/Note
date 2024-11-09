@@ -1,6 +1,8 @@
 :root {
   --w-block-tip-bg: rgba(100, 108, 255, .08);
   --w-block-tip-text: #454ce1;
+
+  --w-nprocess-bar-bg: #3ee0f6;
 }
 
 .dark {
@@ -9,6 +11,8 @@
 
   --w-block-details-border: #585656;
   --w-block-details-bg: #262626;
+
+  --w-nprocess-bar-bg: rgb(164, 144, 164);
 }
 
 /**
@@ -74,6 +78,7 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 .VPSidebar::-webkit-scrollbar {
   display: none;
 }
+
 /*导航设置*/
 @media (min-width: 767px) {
   body .VPLocalSearchBox .shell {
@@ -87,6 +92,12 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   align-items: center;
   margin-left: auto;
 }
+
+/* 修改进度条的颜色 */  
+#nprogress .bar {  
+  background: var(--w-nprocess-bar-bg) !important; /* 这里可以修改为你想要的颜色 */  
+}  
+
 
 
 

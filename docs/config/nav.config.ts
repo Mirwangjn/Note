@@ -15,7 +15,7 @@ export const navConfig: DefaultTheme.NavItem[] = [
         text: '后端',
         items: [
             { text: 'Java', link: '/Java/02.Javabean' },
-
+            { text: 'nodejs', link: '/nodejs/node文档' }
         ]
     },
     {

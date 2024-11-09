@@ -96,6 +96,7 @@ export default defineConfig({
       //代码块icon图标
       groupIconVitePlugin({
         customIcon: {
+          '.txt': localIconLoader(import.meta.url, "../assets/txt.svg"),
           '.java': localIconLoader(import.meta.url, "../assets/java.svg"),
           // '.java': 'vscode-icons:file-type-java'
         }
