@@ -1,7 +1,6 @@
 //根据目录生成侧边栏
 import fs, { link } from "node:fs";
-import path from "node:path";
-
+import { type DefaultTheme } from "vitepress";
 //输入格式  "name": setDir(relative path)
 
 /*
@@ -42,33 +41,51 @@ const filter = (arr: string[]) => arr.filter(val => !whiteList.includes(val));
 
 
 
-
-
-export const setDir = (path: string) => {
-  //当前路径下的所有文件
-  let arr = fs.readdirSync(basePath + path);
-  const items: any[] = [];
-  const result = {
-    text: path.replace("/", ""),
+export function sidebar(path: string) {
+  const arr: any = [];
+  const result: DefaultTheme.SidebarItem = {
+    text: path,
     collapsed: false,
-    items
-  };
-  //过滤白名单
-  arr = filter(arr);
-  arr.forEach((file) => {
-    //2 判断当前文件是否为文件夹
-    if (isDirectory(path + "/" + file)) {
-      //2.1 是 ==> 继续递归下去
+    items: arr
+  }
 
-    } else {
-      //2.1.1获取当前文件夹的详细信息, 并存放在result数组中
-      items.push({
-        text: file,
-        link: path + "/" + file
-      })
+
+  const setDir = (path: string, curArr: DefaultTheme.SidebarItem[]) => {
+    const absolutePath = basePath + "/" + path;
+    //获取当前文件夹的文件
+    const dir = fs.readdirSync(absolutePath);
+    //过滤白名单
+    const dirFilter = filter(dir);
+    for (let i = 0; i < dirFilter.length; i++) {
+      const item = dirFilter[i];
+      const tempArr: DefaultTheme.SidebarItem[] = [];
+      if (isDirectory(absolutePath + "/" + item)) {
+        //是文件夹的情况
+        const tempObj: DefaultTheme.SidebarItem = {
+          text: item.replace(".md", ""),
+          collapsed: false,
+          items: tempArr
+        }
+        curArr.push(tempObj);
+        //回溯递归
+        setDir(path + "/" + item, tempArr);
+      } else {
+        //不是文件夹
+        if (item.indexOf(".md") === -1) continue;
+        //否 ==> 添加curArr数组中
+        curArr.push({ text: item.replace(".md", ""), link: '/' + path + '/' + item.replace(".md", "") });
+      }
     }
-  })
 
+
+
+  }
+
+  setDir(path,arr)
+
+  return result;
 }
 
-setDir("/Java");
+// const result = sidebar("java")
+// console.log(result);
+

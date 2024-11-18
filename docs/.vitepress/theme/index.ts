@@ -6,6 +6,8 @@ import Layout from './Layout.vue'
 import Test from "./components/test.vue";
 import Tip from './components/Tip.vue'
 import Danger from './components/Danger.vue'
+import PreviewLink from './components/PreviewLink.vue'
+import 'element-plus/dist/index.css'
 
 export default {
     extends: DefaultTheme,
@@ -14,6 +16,7 @@ export default {
         app.component("Test", Test);
         app.component("Tip", Tip);
         app.component("Danger", Danger);
+        app.component("PreviewLink", PreviewLink);
     },
 } satisfies Theme
 

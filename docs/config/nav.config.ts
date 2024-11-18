@@ -15,6 +15,7 @@ export const navConfig: DefaultTheme.NavItem[] = [
         text: '后端',
         items: [
             { text: 'Java', link: '/Java/02.Javabean' },
+            { text: 'Springboot', link: '/Springboot/01.开始' },
             { text: 'nodejs', link: '/nodejs/node文档' }
         ]
     },
@@ -22,7 +23,8 @@ export const navConfig: DefaultTheme.NavItem[] = [
         text: '其他',
         items: [
             { text: 'vitepress', link: '/vitepress/01.自动生成侧边栏' },
-            { text: 'linux', link: '/linux/01.安装' }
+            { text: 'linux', link: '/linux/01.安装' },
+            { text: "C", link: '/C语言/C语言小细节' }
         ]
     }
 ]

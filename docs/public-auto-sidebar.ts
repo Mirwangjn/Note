@@ -1,5 +1,7 @@
 //根据目录生成侧边栏
+// @ts-ignore
 import fs from "node:fs";
+import { join } from "node:path";
 import { type DefaultTheme } from "vitepress";
 
 interface AutoSidebarOptions {
@@ -107,6 +109,7 @@ export const autoSidebar = (options: AutoSidebarOptions) => {
   setDir2(root, 1, [], "/");
   return config;
 }
+
 
 
 

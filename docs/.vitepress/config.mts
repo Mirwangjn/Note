@@ -3,12 +3,18 @@ import { defineConfig } from 'vitepress'
 import MarkdownPreview from 'vite-plugin-markdown-preview'
 import { navConfig } from '../config/nav.config'
 import { autoSidebar } from "../auto-sidebar"
+import watchJson from "../watchJson.json";
 //代码块icon图标
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
 //图片方法
 import mdItCustomAttrs from "markdown-it-custom-attrs"
 
+//监视数据变化
+console.log("updateInfo", watchJson);
+
+
 // https://vitepress.dev/reference/site-config
+// @ts-ignore
 export default defineConfig({
   base: '/Note/',
   // 项目标题
@@ -37,6 +43,10 @@ export default defineConfig({
     nav: navConfig,
 
     sidebar: autoSidebar(),
+    // sidebar: {
+    //   '/Java/': [sidebar("java"), sidebar("Springboot")],
+    //   '/vitepress': [sidebar("vitepress")]
+    // },
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/Mirwangjn' },
@@ -97,6 +107,7 @@ export default defineConfig({
       groupIconVitePlugin({
         customIcon: {
           '.txt': localIconLoader(import.meta.url, "../assets/txt.svg"),
+          '.properties': localIconLoader(import.meta.url, "../assets/properties.svg"),
           '.java': localIconLoader(import.meta.url, "../assets/java.svg"),
           // '.java': 'vscode-icons:file-type-java'
         }
