@@ -10,7 +10,7 @@ import chokidar from 'chokidar'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const watchDir = path.join(__dirname, "/Java");
+const watchDir = path.join(__dirname);
 const watchJsonFile = path.join(__dirname, `/watchJson.json`)
 
 console.log(`实时监控目录[ ${watchDir} ]变化, 并重新生成导航数据`)
