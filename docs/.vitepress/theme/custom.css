@@ -1,3 +1,8 @@
+/* 隐藏h1标题 */
+h1 {
+  display: none !important;
+}
+
 :root {
   --w-block-tip-bg: rgba(100, 108, 255, .08);
   --w-block-tip-text: #454ce1;

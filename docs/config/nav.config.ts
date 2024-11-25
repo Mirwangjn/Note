@@ -8,14 +8,14 @@ export const navConfig: DefaultTheme.NavItem[] = [
     {
         text: '前端',
         items: [
-            { text: 'Vue', link: '/vue/toRef' },
+            { text: 'Vue', link: '/vue/1.vite' },
         ]
     },
     {
         text: '后端',
         items: [
             { text: 'Java', link: '/Java/02.Javabean' },
-            { text: 'Springboot', link: '/Springboot/01.开始' },
+            { text: 'Javaweb', link: '/Javaweb/maven/1.maven介绍' },
             { text: 'nodejs', link: '/nodejs/node文档' }
         ]
     },

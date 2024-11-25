@@ -15,7 +15,8 @@
     "docs:preview": "vitepress preview docs --port 8000",
     "watchRestartVitepress": "nodemon ./docs/watchRestartVitepress.mjs",
     "test": "nodemon --files --exec ts-node docs/sidebar-by-one.ts",
-    "test1": "nodemon --files --exec ts-node docs/auto-sidebar.ts"
+    "test1": "nodemon --files --exec ts-node docs/auto-sidebar.ts",
+    "test2": "nodemon docs/auto-add.mjs"
   },
   "dependencies": {
     "element-plus": "^2.8.8",

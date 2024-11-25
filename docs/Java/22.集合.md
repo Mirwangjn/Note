@@ -1,3 +1,5 @@
+# Java
+
 ## Collection
 
 `Collection`是一个接口, 无法直接创建对象使用, 需要通过实现类来使用
